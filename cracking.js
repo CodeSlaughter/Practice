@@ -87,6 +87,26 @@ function stringComp(string) {
 
 //console.log(stringComp('a'))
 
+//1.7
+function rotMat(matrix){
+    var n = matrix.length;
+    for ( var layer = 0; layer < n / 2; layer++){
+        var first = layer;
+        var last = n - 1 - layer;
+        for (var i = first; i < last; i++){
+            var offset = i - first;
+            var top = matrix[first][i]
+            matrix[first][i] = matrix[last - offset][first]
+            matrix[last - offset] = matrix[last][last - offset]
+            matrix[last][last - offset] = matrix[i][last];
+            matrix[i][last] = top;
+        }
+    }
+    return matrix
+}
+
+console.log(rotMat([[ 1, 1, 1, 1], [ 2, 2, 2, 2], [ 3, 3, 3, 3], [4, 4, 4, 4]]))
+
 //1.9
 
 function stringRot(string1, string2) {

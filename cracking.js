@@ -88,21 +88,28 @@ function stringComp(string) {
 //console.log(stringComp('a'))
 
 //1.7
+// function rotMat(matrix){
+//     var n = matrix.length;
+//     for ( var layer = 0; layer < n / 2; layer++){
+//         var first = layer;
+//         var last = n - 1 - layer;
+//         for (var i = first; i < last; i++){
+//             var offset = i - first;
+//             var top = matrix[first][i]
+//             matrix[first][i] = matrix[last - offset][first]
+//             matrix[last - offset] = matrix[last][last - offset]
+//             matrix[last][last - offset] = matrix[i][last];
+//             matrix[i][last] = top;
+//         }
+//     }
+//     return matrix
+// }
+
 function rotMat(matrix){
-    var n = matrix.length;
-    for ( var layer = 0; layer < n / 2; layer++){
-        var first = layer;
-        var last = n - 1 - layer;
-        for (var i = first; i < last; i++){
-            var offset = i - first;
-            var top = matrix[first][i]
-            matrix[first][i] = matrix[last - offset][first]
-            matrix[last - offset] = matrix[last][last - offset]
-            matrix[last][last - offset] = matrix[i][last];
-            matrix[i][last] = top;
-        }
+    var result = []
+    for (var i = 0; i < matrix.length; i++){
+        result[i] = []
     }
-    return matrix
 }
 
 console.log(rotMat([[ 1, 1, 1, 1], [ 2, 2, 2, 2], [ 3, 3, 3, 3], [4, 4, 4, 4]]))
@@ -114,9 +121,10 @@ function stringRot(string1, string2) {
         string1 = string1 + string1
         if (string1.indexOf(string2) > -1) {
             return true
-        }
+        }  
     }
     return false
 }
 
 //console.log(stringRot('funs', 'nsf'))
+//
